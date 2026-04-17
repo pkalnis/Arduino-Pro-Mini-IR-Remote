@@ -9,7 +9,7 @@
  *   D3 -> 1 kOhm -> 2N2222 base
  *   2N2222 collector -> IR LED cathode
  *   IR LED anode -> VCC (3.7 V Li-ion)
- *   2N2222 emitter -> 100 Ohm resistor -> GND
+ *   2N2222 emitter -> 50 Ohm resistor -> GND
  *
  *   Power button  -> Pin D4 -> GND  (internal pull-up, active LOW)
  *   HDMI-1 button -> Pin D5 -> GND  (internal pull-up, active LOW)

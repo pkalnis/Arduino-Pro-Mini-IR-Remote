@@ -16,7 +16,7 @@ LG IR Remote — Wiring Diagram
                        └────────────────────┘││││
                                              ││││       Emitter (2N2222)
                         Button wiring:       ││││             |
-                        (all active LOW,     ││││           100Ω
+                        (all active LOW,     ││││           50Ω
                          internal pull-ups)  ││││             |
                                              ││││            GND
                         D7 ──┤ HDMI-3 ├──GND ┘│││
@@ -38,7 +38,7 @@ LG IR Remote — Wiring Diagram
                  |
             Emitter
                  |
-               100Ω
+               50Ω
                  |
                 GND
 

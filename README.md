@@ -9,7 +9,7 @@ A minimal, battery-powered IR remote for LG Smart TVs. Sends NEC-protocol comman
 | MCU | Arduino Pro Mini 3V3 (ATmega328P, 8 MHz) |
 | IR LED | 940 nm, driven via 2N2222 NPN transistor |
 | Base resistor | 1 kOhm (D3 to 2N2222 base) |
-| Emitter resistor | 100 Ohm (2N2222 emitter to GND) |
+| Emitter resistor | 50 Ohm (2N2222 emitter to GND) |
 | Buttons | 4x momentary push buttons (active LOW, internal pull-ups) |
 | Power | 3.7 V Li-ion cell connected directly to VCC (regulator bypassed) |
 
@@ -38,7 +38,7 @@ Arduino Pro Mini 3V3
 
   D3 ── 1kΩ ── 2N2222 base
                collector ── IR LED cathode ── (anode to VCC)
-               emitter ── 100Ω ── GND
+               emitter ── 50Ω ── GND
 
   D4 ──┤ POWER  ├── GND
   D5 ──┤ HDMI-1 ├── GND
