@@ -4,7 +4,7 @@ LG IR Remote — Wiring Diagram
                         Arduino Pro Mini 3V3
                        ┌────────────────────┐
                        │                    │
-  3.7V Li-ion (+) ────>│ RAW            D3  │──── IR LED anode
+  3.7V Li-ion (+) ────>│ VCC            D3  │──── IR LED anode
                        │                    │        │
   3.7V Li-ion (-) ────>│ GND               │     IR LED cathode
                        │                    │        │
@@ -34,7 +34,7 @@ LG IR Remote — Wiring Diagram
 
   Pin summary:
   ────────────
-  RAW  <- 3.7V Li-ion positive
+  VCC  <- 3.7V Li-ion positive (regulator removed)
   GND  <- 3.7V Li-ion negative
   D3   -> IR LED (via 100Ω to GND)
   D4   -> Power toggle button  -> GND

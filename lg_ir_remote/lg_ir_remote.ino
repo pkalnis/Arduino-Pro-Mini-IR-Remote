@@ -14,7 +14,12 @@
  *   HDMI-2 button -> Pin D6 -> GND  (internal pull-up, active LOW)
  *   HDMI-3 button -> Pin D7 -> GND  (internal pull-up, active LOW)
  *
- *   Power supply: 3.7 V Li-ion cell -> RAW pin (no regulator needed at 3.3 V)
+ *   Power supply: 3.7 V Li-ion cell -> VCC pin (regulator bypassed)
+ *
+ * Hardware mod (required):
+ *   - Remove onboard voltage regulator (or desolder)
+ *   - Remove onboard power LED (or desolder)
+ *   This eliminates ~5-10 mA quiescent draw and allows true uA-level sleep.
  *
  * Power saving:
  *   - SLEEP_MODE_PWR_DOWN between presses

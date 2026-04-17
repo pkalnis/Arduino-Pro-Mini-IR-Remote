@@ -8,15 +8,26 @@ Build an IR remote for an LG Smart TV using an Arduino Pro-Mini 3V3 board powere
 - A Readme file for Github
 
 ## Hardware
-- Arduino Pro-Mini 3V3
+- Arduino Pro-Mini 3V3 (ATmega328P, 8 MHz)
 - IR LED (940 nm) with 100Ω series resistor to GND
 - 4 momentary push buttons, wired between pin and GND (internal pull-ups, active LOW)
   - Power toggle
   - HDMI-1
   - HDMI-2
   - HDMI-3
-- Powered by 3.7V Li-ion cell (no regulator needed)
-- You may suggest hardware mods to reduce power consumption
+- Powered by 3.7V Li-ion cell connected directly to VCC (bypass regulator)
+- Remove onboard voltage regulator and power LED to minimise quiescent current
+
+## Pin assignments
+| Pin | Function |
+|-----|----------|
+| D3  | IR LED anode (OC2B — Timer2 PWM for 38 kHz carrier) |
+| D4  | Power toggle button → GND |
+| D5  | HDMI-1 button → GND |
+| D6  | HDMI-2 button → GND |
+| D7  | HDMI-3 button → GND |
+| VCC | 3.7 V Li-ion (+) — regulator removed |
+| GND | 3.7 V Li-ion (−) |
 
 ## IR protocol — LG NEC
 - Protocol: NEC, 32-bit, 38 kHz carrier
@@ -29,6 +40,10 @@ Build an IR remote for an LG Smart TV using an Arduino Pro-Mini 3V3 board powere
 - Wake via pin-change interrupt on any of the 4 button pins
 - Disable any unnessesary features, to save power
 - Add debouncing
+
+## Collaboration
+- Ask clarifying questions before making assumptions about hardware, protocol, or design choices
+- When multiple valid approaches exist, present options and let the user decide
 
 ## Sketch requirements
 1. Single `.ino` file: `lg_ir_remote/lg_ir_remote.ino`
