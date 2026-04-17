@@ -9,7 +9,7 @@ Build an IR remote for an LG Smart TV using an Arduino Pro-Mini 3V3 board powere
 
 ## Hardware
 - Arduino Pro-Mini 3V3 (ATmega328P, 8 MHz)
-- IR LED (940 nm) with 100Ω series resistor to GND
+- IR LED (940 nm) driven via 2N2222 NPN transistor (1 kΩ base resistor, 100Ω emitter resistor)
 - 4 momentary push buttons, wired between pin and GND (internal pull-ups, active LOW)
   - Power toggle
   - HDMI-1
@@ -21,7 +21,7 @@ Build an IR remote for an LG Smart TV using an Arduino Pro-Mini 3V3 board powere
 ## Pin assignments
 | Pin | Function |
 |-----|----------|
-| D3  | IR LED anode (OC2B — Timer2 PWM for 38 kHz carrier) |
+| D3  | 2N2222 base via 1 kΩ (OC2B — Timer2 PWM for 38 kHz carrier) |
 | D4  | Power toggle button → GND |
 | D5  | HDMI-1 button → GND |
 | D6  | HDMI-2 button → GND |
