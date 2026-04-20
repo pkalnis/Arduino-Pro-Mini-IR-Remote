@@ -1,54 +1,52 @@
 LG IR Remote — Wiring Diagram
 ==============================
 
-                        Arduino Pro Mini 3V3
-                       ┌────────────────────┐
-                       │                    │
-  3.7V Li-ion (+) ────>│ VCC            D3  │──── 1kΩ ──── Base (2N2222)
-                       │                    │                  |
-  3.7V Li-ion (-) ────>│ GND               │           Collector
-                       │                    │                  |
-                       │              D4    │───┐        IR LED cathode
-                       │              D5    │──┐│             |
-                       │              D6    │─┐││        IR LED anode
-                       │              D7    │┐│││             |
-                       │                    ││││            VCC
-                       └────────────────────┘││││
-                                             ││││       Emitter (2N2222)
-                        Button wiring:       ││││             |
-                        (all active LOW,     ││││           50Ω
-                         internal pull-ups)  ││││             |
-                                             ││││            GND
-                        D7 ──┤ HDMI-3 ├──GND ┘│││
-                        D6 ──┤ HDMI-2 ├──GND ─┘││
-                        D5 ──┤ HDMI-1 ├──GND ──┘│
-                        D4 ──┤ POWER  ├──GND ───┘
+Power rail
+──────────
+  Li-ion (+) ─── Arduino VCC ─── IR LED anode
+  Li-ion (−) ─── Arduino GND ─── 2N2222 emitter (via 50Ω) ─── button returns
+                                         │
+                                  common ground rail
 
 
-  IR LED driver detail:
-  ─────────────────────
+IR LED driver (NPN switching)
+─────────────────────────────
 
-                VCC (3.7V Li-ion)
-                 |
-               IR LED (940 nm, anode up)
-                 |
-            Collector
-                 |
-  D3 ──── 1kΩ ──┤ 2N2222 (NPN)
-                 |
-            Emitter
-                 |
-               50Ω
-                 |
-                GND
+                 VCC (3.7 V Li-ion)
+                   │
+                IR LED (anode)
+                   ▼
+                IR LED (cathode)
+                   │
+               Collector
+                   │
+  D3 ── 1kΩ ── Base ─┤ 2N2222 (NPN)
+                   │
+               Emitter
+                   │
+                  50Ω
+                   │
+                  GND   (common rail)
 
 
-  Pin summary:
-  ────────────
-  VCC  <- 3.7V Li-ion positive (regulator removed)
-  GND  <- 3.7V Li-ion negative
-  D3   -> 1kΩ -> 2N2222 base (IR LED driver)
-  D4   -> Power toggle button  -> GND
-  D5   -> HDMI-1 button        -> GND
-  D6   -> HDMI-2 button        -> GND
-  D7   -> HDMI-3 button        -> GND
+Buttons (normally open, internal pull-ups, active LOW)
+──────────────────────────────────────────────────────
+  D4 ─── pin1 ┤ POWER  ├ pin2 ─── GND
+  D5 ─── pin1 ┤ HDMI-1 ├ pin2 ─── GND
+  D6 ─── pin1 ┤ HDMI-2 ├ pin2 ─── GND
+  D7 ─── pin1 ┤ HDMI-3 ├ pin2 ─── GND
+
+  (buttons are two-terminal momentary switches; either pin
+   can go to the MCU pin and the other to GND)
+
+
+Pin summary
+───────────
+  VCC  <-  3.7 V Li-ion positive (regulator removed)
+  GND  <-  common ground rail: battery (−), Arduino GND,
+           2N2222 emitter (via 50Ω), all 4 button returns
+  D3   ->  1kΩ -> 2N2222 base (IR LED driver)
+  D4   ->  POWER button  -> GND
+  D5   ->  HDMI-1 button -> GND
+  D6   ->  HDMI-2 button -> GND
+  D7   ->  HDMI-3 button -> GND
