@@ -83,6 +83,17 @@ Install via the Arduino IDE Library Manager or `arduino-cli lib install "IRremot
 3. Select **Processor:** ATmega328P (3.3V, 8 MHz)
 4. Compile and upload via an FTDI adapter
 
+## 3D-Printed Enclosure
+
+STL files for a two-part enclosure are included in the [`enclosure/`](enclosure/) folder:
+
+| File | Description |
+|---|---|
+| [`Enclosure Arduino pro mini - Bottom.stl`](enclosure/Enclosure%20Arduino%20pro%20mini%20-%20Bottom.stl) | Bottom housing — holds the Pro Mini, 2N2222, resistors, IR LED, and Li-ion cell |
+| [`Enclosure Arduino pro mini - Lid.stl`](enclosure/Enclosure%20Arduino%20pro%20mini%20-%20Lid.stl) | Top lid with openings for the 4 push buttons and the IR LED |
+
+Print both parts in PLA or PETG. Supports are generally not required.
+
 ## License
 
 MIT
