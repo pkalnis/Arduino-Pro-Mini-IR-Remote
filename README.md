@@ -1,4 +1,5 @@
 # LG Smart TV IR Remote — Arduino Pro Mini 3V3
+## by Panos Kalnis
 
 A minimal, battery-powered IR remote for LG Smart TVs. Sends NEC-protocol commands for **Power**, **HDMI-1**, **HDMI-2**, and **HDMI-3** input switching.
 
